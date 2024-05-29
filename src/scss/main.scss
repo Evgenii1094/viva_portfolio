@@ -1,0 +1,43 @@
+// base
+@import "config";
+@import "mixins";
+@import "fonts";
+
+// templates
+@import "./templates/container";
+@import "./templates/button";
+@import "./templates/section";
+@import "./templates/title";
+@import "./templates/paragraph";
+@import "./templates/item-title";
+@import "./templates/site-wrapper";
+@import "templates/auxiliary";
+
+// index.html
+@import "./components/header";
+@import "./components/header-nav";
+@import "./components/hero";
+@import "./components/calculator";
+@import "./components/benefits";
+@import "./components/work";
+@import "./components/experts";
+@import "./components/ticker";
+@import "./components/stats";
+@import "./components/cta";
+@import "./components/seo-block";
+@import "./components/faq";
+@import "./components/footer";
+
+// page-seo.html
+@import "./components/brands";
+
+// page-about.html
+@import "./components/mission";
+@import "./components/history";
+
+// page-contact.html
+@import "./components/contact";
+
+// page-price.html
+@import "./components/price";
+@import "./components/safe";

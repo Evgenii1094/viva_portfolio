@@ -1,0 +1,245 @@
+.calculator {
+    $this: &;
+    position: relative;
+
+    @include tablet {
+        margin: 0 auto;
+        width: 380px;
+    }
+
+    @include sm-mobile {
+        width: 320px;
+    }
+
+    .is-seo-page & {
+        &::before {
+            z-index: 1;
+        }
+
+        #{$this}__form {
+            background-color: $color-white;
+            position: relative;
+            z-index: 1;
+        }
+
+        #{$this}__selected-item {
+            border: 1px solid var(--color-black);
+        }
+
+        #{$this}__counter-info {
+            border-bottom: 1px solid var(--color-black);
+            border-top: 1px solid var(--color-black);
+        }
+
+        #{$this}__counter-btn {
+            border: 1px solid var(--color-black);
+        }
+    }
+
+    &::before {
+        @include absolute(-45px, -95px);
+        @include size(555px, 550px);
+        background: {
+            image: url("../../img/calculator-bg.png");
+            repeat: no-repeat;
+            size: cover;
+        };
+        content: '';
+        z-index: -1;
+
+        @include mobile {
+            content: none;
+        }
+    }
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    &__form {
+        align-items: center;
+        background-color: var(--color-bg);
+        border: 1px solid var(--color-black);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+
+        @include mobile {
+            padding: 30px 20px;
+        }
+    }
+
+    &__inner {
+        display: grid;
+        gap: 12px 0;
+        grid-template-columns: repeat(1, 300px);
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__group {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 4px;
+        width: 100%;
+
+        @include tablet {
+            flex-direction: column;
+            margin-top: 6px;
+            width: 100%;
+        }
+    }
+
+    &__select-block {
+        margin-bottom: 20px;
+        position: relative;
+
+        &::after {
+            @include size(12px);
+            @include absolute(15px, 20px);
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M1.25 3.5L6.25 8.5L11.25 3.5' stroke='%232D1600' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                repeat: no-repeat;
+            };
+            content: '';
+            pointer-events: none;
+            z-index: 1;
+        }
+    }
+
+    &__label {
+        @include font(var(--typo-1), 16px, var(--fw-normal));
+        color: var(--color-grey);
+        margin-bottom: 6px;
+    }
+
+    &__custom-select {
+        cursor: pointer;
+        position: relative;
+        width: 100%;
+    }
+
+    &__selected-item {
+        @include font(var(--typo-1), 16px, var(--fw-extrabold));
+        background-color: $color-white;
+        border-radius: 8px;
+        color: var(--color-black);
+        padding: 10px 20px;
+    }
+
+    &__dropdown {
+        @include absolute(45px, null, null, 0);
+        @include trs();
+        background-color: $color-white;
+        border-radius: 8px;
+        display: block;
+        max-height: 0;
+        opacity: 0;
+        overflow-y: auto;
+        visibility: hidden;
+        width: 100%;
+        z-index: 3;
+
+        &.is-open {
+            max-height: 300px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__option {
+        @include font(var(--typo-1), 16px, var(--fw-normal));
+        @include trs();
+        color: var(--color-black);
+        cursor: pointer;
+        padding: 10px 20px;
+
+        @include on-event {
+            background-color: var(--color-bg);
+        }
+    }
+
+    &__result {
+        @include font(var(--typo-1), 24px, var(--fw-bold));
+        color: var(--color-black);
+    }
+
+    &__result-text {
+        line-height: 1.25;
+        width: 140px;
+    }
+
+    &__price {
+        @include flex-v-center;
+        @include font(var(--typo-1), 16px, var(--fw-normal));
+        color: var(--color-black);
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__button {
+        cursor: pointer;
+        margin-top: 24px;
+        text-transform: none;
+        width: 100%;
+    }
+
+    &__counter-wrap {
+        display: grid;
+        grid-template-columns: 50px 200px 50px;
+        margin-bottom: 20px;
+
+        @include mobile {
+            grid-template-columns: 50px 238px 50px;
+        }
+
+        @include sm-mobile {
+            grid-template-columns: 50px 178px 50px;
+        }
+    }
+
+    &__counter-btn {
+        @include trs;
+        @include size(50px, 44px);
+        background-color: $color-white;
+        border: 0;
+        border-radius: 8px 0 0 8px;
+        cursor: pointer;
+
+        svg {
+            @include trs;
+        }
+
+        @include on-event {
+            background-color: var(--color-accent);
+
+            svg {
+                path {
+                    stroke: $color-white;
+                }
+            }
+        }
+
+        &:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+    }
+
+    &__counter-info {
+        @include flex-all-center;
+        @include font(var(--typo-1), 16px, var(--fw-extrabold));
+        background-color: $color-white;
+        border-left: 1px solid var(--color-devider);
+        border-right: 1px solid var(--color-devider);
+        color: var(--color-black);
+
+        #pages {
+            margin-right: 4px;
+        }
+    }
+}

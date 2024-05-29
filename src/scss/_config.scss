@@ -1,0 +1,28 @@
+// Colors
+$color-white: #fff;
+
+:root {
+    // Font family
+    --typo-1: 'Nunito', sans-serif;
+
+    // Color variable
+    --color-black: #2D1600;
+    --color-bg: #ffe86e;
+    --color-accent: #ff6a6a;
+    --color-hover: #eb5656;
+    --color-devider: #eaecec;
+    --color-grey: #7e7369;
+
+
+    // Font weight
+    --fw-thin: 100;
+    --fw-extralight: 200;
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+    --fw-black: 900;
+}
+

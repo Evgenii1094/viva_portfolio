@@ -1,0 +1,8 @@
+.item-title {
+    @include font(var(--typo-1), 24px, var(--fw-bold));
+    color: var(--color-black);
+
+    @include mobile {
+        font-size: 22px;
+    }
+}

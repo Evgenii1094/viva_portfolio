@@ -1,0 +1,51 @@
+.safe {
+    &__wrapper {
+        align-items: center;
+        display: grid;
+        gap: 0 120px;
+        grid-template-columns: 580px 480px;
+        justify-content: center;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 60px 0;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 14px 0;
+
+        @include tablet {
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px 0;
+    }
+
+    &__title {
+        @include font(var(--typo-1), 38px, var(--fw-extrabold));
+        color: var(--color-black);
+        text-transform: capitalize;
+
+        @include mobile {
+            font-size: 28px;
+        }
+    }
+
+    &__subtitle {
+        @include font(var(--typo-1), 18px, var(--fw-normal));
+        color: var(--color-grey);
+
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+}

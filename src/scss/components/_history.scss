@@ -1,0 +1,51 @@
+.history {
+    &__wrapper {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, 580px);
+        justify-content: center;
+
+        @include tablet {
+            grid-template-columns: repeat(2, 334px);
+        }
+
+        @include mobile {
+            grid-template-columns: auto;
+        }
+    }
+
+    &__item {
+        border: 1px solid var(--color-black);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+        padding: 40px;
+
+        @include mobile {
+            width: 320px;
+        }
+    }
+
+    &__num {
+        @include font(var(--typo-1), 50px, var(--fw-black));
+        color: var(--color-bg);
+        padding-bottom: 10px;
+        position: relative;
+        text-transform: uppercase;
+        text-shadow: -1px -1px 0 var(--color-black),  1px -1px 0 var(--color-black), -1px  1px 0 var(--color-black), 1px  1px 0 var(--color-black);
+
+        &::before {
+            @include absolute(null, null, 0, 0);
+            @include size(100%, 1px);
+            background-color: var(--color-devider);
+            content: '';
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px 0;
+    }
+}

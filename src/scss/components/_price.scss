@@ -1,0 +1,231 @@
+.price {
+    $this: &;
+    margin-top: 60px;
+
+    .container {
+        @include tablet {
+            padding: 0;
+        }
+
+        @include mobile {
+            padding: 0 20px;
+        }
+    }
+
+    .title {
+        margin: 0 auto 48px;
+        max-width: 580px;
+        text-align: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 24px 0;
+    }
+
+    &__slider {
+        position: relative;
+    }
+
+    &__slider-container {
+        display: flex;
+        gap: 0 20px;
+        margin: 0 auto;
+
+        @include tablet {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        @include mobile {
+            width: 320px;
+        }
+    }
+
+    &__slider-item {
+        background-color: $color-white;
+        border: 1px solid var(--color-black);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+        justify-content: space-between;
+        min-height: 540px;
+        padding: 40px;
+
+        @include tablet {
+            margin: 0 auto;
+            max-width: 380px;
+            padding: 30px;
+            opacity: 0.2;
+            width: 380px;
+        }
+
+        @include mobile {
+            max-width: 320px;
+            width: 320px;
+        }
+
+        &.swiper-slide-active {
+            @include tablet {
+                opacity: 1;
+            }
+        }
+
+        &:nth-child(2) {
+            background-color: var(--color-bg);
+
+            @include tablet {
+                background-color: $color-white;
+            }
+
+            #{$this}__group {
+                &::after,
+                &::before {
+                    background-color: $color-white;
+
+                    @include tablet {
+                        background-color: var(--color-devider);
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+        text-align: center;
+    }
+
+    &__title {
+        text-transform: uppercase;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px 0;
+        padding: 14px 0 18px;
+        position: relative;
+
+        &::after {
+            @include absolute(0, null, null, 0);
+            @include size(100%, 1px);
+            background-color: var(--color-devider);
+            content: '';
+        }
+
+        &::before {
+            @include absolute(null, null, 0, 0);
+            @include size(100%, 1px);
+            background-color: var(--color-devider);
+            content: '';
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px 0;
+        text-align: left;
+    }
+
+    &__item {
+        @include font(var(--typo-1), 16px, var(--fw-normal));
+        color: var(--color-black);
+        padding-left: 34px;
+        position: relative;
+
+        &::before {
+            @include absolute(50%, null, null, 0);
+            @include size(24px);
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M3.34315 14.3431L9.42271 19.5773L20.4779 6.02208' stroke='%232D1600' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                repeat: no-repeat;
+                size: cover;
+            };
+            content: '';
+            transform: translateY(-50%);
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 28px 0;
+    }
+
+    &__bottom-row {
+        @include flex-v-center;
+        gap: 0 10px;
+    }
+
+    &__icon {
+        @include size(24px);
+        display: inline-flex;
+        position: relative;
+
+        &::before {
+            @include absolute(0, 0);
+            @include size(24px);
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4 12H20' stroke='%232D1600' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 20L12 4' stroke='%232D1600' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                repeat: no-repeat;
+                size: cover;
+            };
+            content: '';
+        }
+    }
+
+    &__note {
+        @include font(var(--typo-1), 14px, var(--fw-normal));
+        color: var(--color-grey);
+        opacity: 0.7;
+        text-align: center;
+    }
+
+    &__button-group {
+        @include absolute(50%, null, null, 50%);
+        @include size(420px, 40px);
+        transform: translate(-50%, -50%);
+        z-index: 2;
+
+        @include mobile {
+            width: 360px;
+        }
+    }
+
+    &__button-next,
+    &__button-prev {
+        @include trs();
+        @include size(40px);
+        background-color: $color-white;
+        border: 1px solid var(--color-accent);
+        border-radius: 50%;
+
+        @include on-event {
+            background-color: var(--color-accent);
+
+            svg {
+                path {
+                    stroke: $color-white;
+                }
+            }
+        }
+
+        &::after {
+            content: none;
+        }
+    }
+
+    &__button-next {
+        right: 0;
+    }
+
+    &__button-prev {
+        left: 0;
+    }
+}

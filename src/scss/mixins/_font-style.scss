@@ -1,0 +1,12 @@
+// Set font styles
+// @param {string|list} $params - list of font params font-family, font-size, font-weight, font-style
+@mixin font($params...) {
+  @if length($params) > 0 {
+    $params: if(length($params) == 1, nth($params, 1), $params);
+    $props: (font-family, font-size, font-weight, font-style);
+
+    @for $index from 1 through length($params) {
+      #{nth($props, $index)}: nth($params, $index);
+    }
+  }
+}

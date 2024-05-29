@@ -1,0 +1,40 @@
+.title {
+    $this: &;
+    @include flex-all-center;
+    gap: 14px 0;
+    flex-direction: column;
+    margin-bottom: 48px;
+    text-align: center;
+
+    &.is-primary {
+        text-align: left;
+
+        #{$this}__text {
+            font-size: 48px;
+            text-transform: uppercase;
+
+            @include mobile {
+                font-size: 36px;
+            }
+        }
+    }
+
+    &__text {
+        @include font(var(--typo-1), 38px, var(--fw-extrabold));
+        color: var(--color-black);
+        line-height: normal;
+
+        @include mobile {
+            font-size: 28px;
+        }
+    }
+
+    &__text-small {
+        @include font(var(--typo-1), 18px, var(--fw-normal));
+        color: var(--color-grey);
+
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+}

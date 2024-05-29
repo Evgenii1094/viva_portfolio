@@ -1,0 +1,11 @@
+.section {
+    margin: 160px 0;
+
+    @include tablet {
+        margin: 140px 0;
+    }
+
+    &.is-blog {
+        margin: 120px 0;
+    }
+}

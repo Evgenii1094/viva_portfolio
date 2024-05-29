@@ -1,0 +1,88 @@
+.cta {
+    $this: &;
+    background-color: var(--color-bg);
+    padding: 80px 0;
+
+    &.is-reverse {
+        margin-bottom: 0;
+        
+        #{$this}__wrapper {
+            grid-template-columns: 480px 580px;
+
+            @include tablet {
+                flex-direction: column;
+            }
+        }
+    }
+
+    &__wrapper {
+        align-items: center;
+        display: grid;
+        gap: 0 120px;
+        grid-template-columns: 580px 480px;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 60px 0;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 48px 0;
+
+        @include tablet {
+            align-items: center;
+        }
+    }
+
+    &__title-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 14px 0;
+
+        @include tablet {
+            max-width: 580px;
+            text-align: center;
+        }
+    }
+
+    &__title {
+        @include font(var(--typo-1), 48px, var(--fw-extrabold));
+        color: var(--color-black);
+        line-height: normal;
+        text-transform: uppercase;
+
+        @include mobile {
+            font-size: 36px
+        }
+    }
+    
+    &__subtitle {
+        @include font(var(--typo-1), 18px, var(--fw-normal));
+        color: var(--color-grey);
+
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+
+    &__buttons {
+        @include flex-v-center;
+        gap: 0 20px;
+
+        @include sm-mobile {
+            flex-direction: column;
+            gap: 20px 0;
+            width: 100%;
+        }
+
+        .btn {
+            @include sm-mobile {
+                width: 100%;
+            }
+        }
+    }
+}

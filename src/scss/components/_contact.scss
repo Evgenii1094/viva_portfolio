@@ -1,0 +1,109 @@
+.contact {
+    margin-top: 60px;
+
+    .title {
+        margin: 0 auto 48px;
+        max-width: 580px;
+        text-align: center;
+    }
+
+    &__wrapper {
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, 480px);
+        justify-content: space-between;
+
+        @include tablet {
+            gap: 60px 0;
+            grid-template-columns: auto;
+            justify-content: center;
+        }
+    }
+
+    &__picture {
+        @include tablet {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px 0;
+
+        @include tablet {
+            align-items: center;
+            max-width: 480px;
+            text-align: center;
+        }
+    }
+
+    &__title-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+    }
+
+    &__title {
+        @include font(var(--typo-1), 38px, var(--fw-extrabold));
+        color: var(--color-black);
+        text-transform: capitalize;
+
+        @include mobile {
+            font-size: 28px;
+        }
+    }
+    
+    &__icon {
+        @include flex-v-center;
+    }
+
+    &__group {
+        @include flex-v-center;
+        gap: 0 10px;
+        
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px 0;
+        padding-top: 24px;
+        position: relative;
+
+        &::before {
+            @include absolute(0, null, null, 0);
+            @include size(100%, 1px);
+            background-color: var(--color-devider);
+            content: '';
+        }
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 12px 0;
+
+        @include tablet {
+            align-items: center;
+        }
+    }
+
+    &__link {
+        @include trs;
+
+        @include on-event {
+            color: var(--color-accent);
+        }
+
+        &.is-phone {
+            @include mobile {
+                max-width: 210px;
+            }
+        }
+    }
+}

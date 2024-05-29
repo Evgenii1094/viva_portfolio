@@ -1,0 +1,19 @@
+%container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1180px;
+    position: relative;
+    width: 100%;
+
+    @include tablet {
+        padding: 0 40px;
+    }
+
+    @include mobile {
+        padding: 0 20px;
+    }
+}
+
+.container {
+    @extend %container;
+}

@@ -1,0 +1,131 @@
+.header {
+    $this: &;
+    @include absolute(0, null, null, 0);
+    @include trs(top);
+    background-color: $color-white;
+    margin-bottom: 60px;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    z-index: 101;
+
+    @include mobile {
+        padding: 30px 0;
+    }
+
+    .is-seo-page & {
+        background-color: var(--color-bg);
+        margin: 0;
+    }
+
+    &.is-fixed {
+        position: fixed;
+        top: 40px;
+        transform: translateY(-40px);
+    }
+
+    &.is-opened {
+        #{$this}__content {
+            @include mobile {
+                @include absolute(100px, null, null, 50%);
+                display: flex;
+                flex-direction: column;
+                gap: 40px 0;
+                margin: 0;
+                transform: translateX(-50%);
+            }
+        }
+
+        #{$this}__buttons {
+            @include mobile {
+                flex-direction: column;
+                gap: 20px 0;
+            }
+
+            .btn {
+                @include mobile {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__inner {
+        @include flex-all-sb;
+    }
+
+    &__content {
+        @include flex-v-center;
+        gap: 0 175px;
+
+        @include tablet {
+            margin-right: 125px;
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &__buttons {
+        @include flex-v-center;
+        gap: 0 20px;
+    }
+
+    &__menu {
+        display: none;
+
+        @include tablet {
+            @include absolute(50%, 40px);
+            @include trs();
+            cursor: pointer;
+            display: block;
+            overflow: hidden;
+            transform: translateY(-50%);
+        }
+
+        @include mobile {
+            right: 20px;
+        }
+
+        .is-opened & {
+            overflow: visible;
+            z-index: 10;
+        }
+    }
+
+    &__hamburger {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__bar {
+        @include tablet {
+            @include trs();
+            @include size(36px, 2px);
+            background-color: var(--color-black);
+            margin-bottom: 10px;
+
+            .is-opened & {
+                margin: -1px;
+
+                &:first-child {
+                    transform: rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    display: none;
+                }
+
+                &:last-child {
+                    transform: rotate(-45deg);
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

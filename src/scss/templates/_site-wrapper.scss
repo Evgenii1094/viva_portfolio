@@ -1,0 +1,38 @@
+.site-wrapper {
+    &__inner {
+        display: grid;
+        grid-template-columns: 680px 380px;
+        justify-content: space-between;
+        margin: 80px auto 140px;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 120px 0;
+            grid-template-columns: auto;
+        }
+
+        .is-article-page & {
+            flex-direction: column;
+            margin-top: 24px;
+        }
+    }
+
+    &__content {
+        .is-article-page & {
+            @include tablet {
+                padding: 0 24px;
+            }
+
+            @include mobile {
+                padding: 0;
+            }
+        }
+    }
+
+    &__sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 80px 0;
+    }
+}

@@ -1,0 +1,60 @@
+.header-nav {
+    $this: &;
+
+    @include tablet {
+        display: none;
+    }
+
+    .is-opened & {
+        @include absolute(100px, null, null, 50%);
+        display: flex;
+        transform: translateX(-50%);
+
+        @include mobile {
+            @include reset-position;
+            transform: none;
+        }
+
+        #{$this}__list {
+            gap: 40px 0;
+            grid-template-columns: auto;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 114px);
+        gap: 0 20px;
+    }
+
+    &__item {
+        @include flex-all-center;
+    }
+
+    &__link {
+        @include trs;
+        @include font(var(--typo-1), 16px, var(--fw-normal));
+        color: var(--color-black);
+        position: relative;
+
+        &::before {
+            @include trs;
+            @include absolute(null, null, -2px, 0);
+            @include size(0px, 2px);
+            background-color: var(--color-accent);
+            content: '';
+        }
+
+        @include on-event {
+            color: var(--color-accent);
+
+            &::before {
+                width: 100%;
+            }
+        }
+
+        &.is-active {
+            color: var(--color-grey);
+        }
+    }
+}

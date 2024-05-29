@@ -1,0 +1,97 @@
+.stats {
+    $this: &;
+
+    &.is-seo {
+        #{$this}__wrapper {
+            grid-template-columns: repeat(4, 210px);
+
+            @include tablet {
+                grid-template-columns: repeat(4, 146px);
+            }
+
+            @include mobile {
+                grid-template-columns: auto;
+            }
+        }
+
+        #{$this}__item {
+            gap: 12px 0;
+            padding: 20px;
+
+            @include mobile {
+                width: 276px;
+            }
+        }
+
+        #{$this}__num {
+            @include font(var(--typo-1), 38px, var(--fw-extrabold));
+        }
+
+        #{$this}__title {
+            @include font(var(--typo-1), 16px, var(--fw-extrabold));
+            padding-top: 12px;
+
+            &::before {
+                width: 170px;
+
+                @include tablet {
+                    width: 106px;
+                }
+
+                @include mobile {
+                    width: 236px;
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 20px;
+        grid-template-columns: repeat(4, 280px);
+        justify-content: center;
+
+        @include tablet {
+            gap: 20px;
+            grid-template-columns: repeat(2, 280px);
+        }
+
+        @include mobile {
+            grid-template-columns: auto;
+        }
+    }
+
+    &__item {
+        @include flex-v-center;
+        border: 1px solid var(--color-black);
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 20px 0;
+        padding: 40px;
+        text-align: center;
+
+        @include mobile {
+            padding: 30px;
+        }
+    }
+
+    &__num {
+        @include font(var(--typo-1), 50px, var(--fw-black));
+        color: var(--color-bg);
+        text-transform: uppercase;
+        text-shadow: -1px -1px 0 var(--color-black),  1px -1px 0 var(--color-black), -1px  1px 0 var(--color-black), 1px  1px 0 var(--color-black);
+    }
+
+    &__title {
+        padding-top: 20px;
+        position: relative;
+
+        &::before {
+            @include absolute(0, null, null, 50%);
+            @include size(200px, 1px);
+            background-color: var(--color-devider);
+            content: '';
+            transform: translateX(-50%);
+        }
+    }
+}

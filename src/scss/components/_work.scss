@@ -1,0 +1,88 @@
+.work {
+    $this: &;
+
+    .title {
+        margin: 0 auto 48px;
+        width: 580px;
+
+        @include tablet {
+            width: 100%;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 120px;
+        grid-template-columns: 480px 580px;
+        justify-content: center;
+
+        @include tablet {
+            gap: 48px 0;
+            grid-template-columns: auto;
+        }
+    }
+
+    &__item {
+        border-bottom: 1px solid var(--color-devider);
+
+        &:first-child {
+            #{$this}__title {
+                padding-top: 0;
+            }
+        }
+    }
+
+    &__title {
+        cursor: pointer;
+        padding: 24px 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__answer {
+        @include trs();
+        max-height: 0;
+        opacity: 0;
+
+        .is-open & {
+            opacity: 1;
+            overflow: visible;
+        }
+
+        .is-active & {
+            max-height: max-content;
+            opacity: 1;
+            overflow: visible;
+        }
+    }
+
+    &__answer-inner {
+        padding: 0 0 24px;
+    }
+
+    &__paragraph {
+        margin-bottom: 24px;
+    }
+
+    &__image-group {
+        position: relative;
+    }
+
+    &__picture {
+        @include trs;
+        @include absolute(0, null, null, 50%);
+        @include flex-all-center;
+        transform: translateX(-50%);
+        width: 100%;
+
+        &.is-hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &.is-show {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

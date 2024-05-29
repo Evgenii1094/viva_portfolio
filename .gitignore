@@ -1,0 +1,7 @@
+node_modules
+app
+.vscode
+.idea
+.phpstorm
+.DS_Store
+package-lock.json
